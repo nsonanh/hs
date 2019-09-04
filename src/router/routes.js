@@ -3,19 +3,20 @@ import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 import NotFound from "@/pages/NotFoundPage.vue";
 
 // Admin pages
-import Dashboard from "@/pages/Dashboard.vue";
+import Dashboard from "@/pages/dashboard/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import Notifications from "@/pages/Notifications.vue";
 import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
 import TableList from "@/pages/TableList.vue";
+import LoginPage from '@/pages/login/LoginPage'
 
 const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    redirect: "/dashboard",
+    redirect: "/login",
     children: [
       {
         path: "dashboard",
@@ -53,6 +54,11 @@ const routes = [
         component: TableList
       }
     ]
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginPage
   },
   { path: "*", component: NotFound }
 ];
