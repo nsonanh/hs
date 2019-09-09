@@ -14,6 +14,7 @@
     "bootstrap": "^4.0.0",
     "chartist": "^0.11.0",
     "es6-promise": "^4.2.4",
+    "querystring": "^0.2.0",
     "vue": "^2.6.10",
     "vue-clickaway": "^2.1.0",
     "vue-notifyjs": "^0.3.0",

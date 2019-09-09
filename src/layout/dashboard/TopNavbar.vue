@@ -37,11 +37,20 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" @click="logout">
+              <i class="ti-power-off"></i>
+              <p>
+                Đăng xuất
+              </p>
+            </a>
+          </li>
         </ul>
       </div>
     </div></nav>
 </template>
 <script>
+import { userService } from '../../services/user.service';
 export default {
   computed: {
     routeName() {
@@ -69,6 +78,9 @@ export default {
     },
     hideSidebar() {
       this.$sidebar.displaySidebar(false);
+    },
+    logout() {
+      userService.logout();
     }
   }
 };

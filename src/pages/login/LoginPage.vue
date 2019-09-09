@@ -2,17 +2,25 @@
     <div class="login-page">
         <div class="form">
             <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
-            <p class="message">Already registered? <a href="#">Sign In</a></p>
+              <input type="text" placeholder="name"/>
+              <input type="password" placeholder="password"/>
+              <input type="text" placeholder="email address"/>
+              <button>create</button>
+              <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
-            <form class="login-form">
-            <input type="text" placeholder="Tên tài khoản"/>
-            <input type="password" placeholder="Mật khẩu"/>
-            <button>Đăng nhập</button>
-            <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
+            <form @submit.prevent class="login-form">
+              <input type="text"
+                class="input-fields"
+                placeholder="Tên tài khoản"
+                v-model="user.username"
+              />
+              <input type="password"
+                class="input-fields"
+                placeholder="Mật khẩu"
+                v-model="user.password"
+              />
+              <p-button @click.native.prevent="login">Đăng nhập</p-button>
+              <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
             </form>
         </div>
     </div>
@@ -35,7 +43,7 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+.form .input-fields {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -119,3 +127,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
+
+<script>
+import { userService } from '../../services/user.service';
+export default {
+    data() {
+    return {
+      user: {
+        username: '',
+        password: ''
+      }
+    };
+  },
+  methods: {
+    login() {
+      if (this.user.username.length < 1 || this.user.password.length < 1) {
+        alert('Tên tài khoản hoặc mật khẩu chưa được điền')
+      } else {
+        alert("Your data: " + JSON.stringify(this.user));
+        const msg = userService.login(this.user.username, this.user.password);
+      }
+    }
+  }
+}
+</script>
