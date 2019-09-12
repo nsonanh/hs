@@ -13,6 +13,24 @@
             v-if="hasValue(item, column)">
           {{itemValue(item, column)}}
         </td>
+        <td>
+        <div class="text-center">
+          <p-button type="success"
+            simple
+            size="sm"
+            class='button-table'
+            @click.native.prevent="updateProfile">
+            Sửa
+          </p-button>
+          <p-button type="danger"
+            simple
+            size="sm"
+            class='button-table'
+            @click.native.prevent="updateProfile">
+            Xoá
+          </p-button>
+        </div>
+      </td>
       </slot>
     </tr>
     </tbody>
@@ -53,4 +71,8 @@ export default {
 };
 </script>
 <style>
+  .button-table {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 </style>
