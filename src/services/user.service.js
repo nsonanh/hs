@@ -33,6 +33,7 @@ function login(username, password) {
             if (response.access_token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('token', response.access_token);
+                localStorage.setItem('username', username);
                 router.push('dashboard');
             }
 
@@ -43,6 +44,7 @@ function login(username, password) {
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     router.push('login');
 }
 
