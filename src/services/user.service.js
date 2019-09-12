@@ -36,8 +36,10 @@ function login(username, password) {
                 localStorage.setItem('username', username);
                 router.push('dashboard');
             }
-
             return response;
+        })
+        .catch(() => {
+            alert('Tên tài khoản hoặc mật khẩu không đúng');
         });
 }
 

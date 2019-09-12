@@ -144,7 +144,6 @@ export default {
       if (this.user.username.length < 1 || this.user.password.length < 1) {
         alert('Tên tài khoản hoặc mật khẩu chưa được điền')
       } else {
-        alert("Your data: " + JSON.stringify(this.user));
         const msg = userService.login(this.user.username, this.user.password);
       }
     }
