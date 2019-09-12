@@ -20,6 +20,7 @@ const oAuthModel = require('./authorisation/accessTokenModel')(userDBHelper, acc
 const oAuth2Server = require('node-oauth2-server')
 
 const express = require('express')
+var cors = require('cors');
 const expressApp = express()
 
 /* Now we instantiate the oAuth2Server and pass in an object which tells
@@ -55,6 +56,7 @@ const bodyParser = require('body-parser')
 
 //set the bodyParser to parse the urlencoded post data
 expressApp.use(bodyParser.urlencoded({ extended: true }))
+expressApp.use(cors());
 
 //set the oAuth errorHandler
 expressApp.use(expressApp.oauth.errorHandler())
