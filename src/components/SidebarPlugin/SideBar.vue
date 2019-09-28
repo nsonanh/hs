@@ -43,7 +43,8 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Welcome, " + localStorage.getItem('username')
+      // default: "Xin chào, " + localStorage.getItem('user').email
+      default: "Xin chào"
     },
     backgroundColor: {
       type: String,

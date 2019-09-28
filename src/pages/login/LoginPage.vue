@@ -9,9 +9,9 @@
               <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
             <form @submit.prevent class="login-form">
-              <input type="text"
+              <input type="email"
                 class="input-fields"
-                placeholder="Tên tài khoản"
+                placeholder="Email đăng nhập"
                 v-model="user.username"
               />
               <input type="password"
@@ -140,11 +140,11 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
       if (this.user.username.length < 1 || this.user.password.length < 1) {
         alert('Tên tài khoản hoặc mật khẩu chưa được điền')
       } else {
-        const msg = userService.login(this.user.username, this.user.password);
+        await userService.login(this.user.username, this.user.password);
       }
     }
   }
